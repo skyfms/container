@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Inflector;
 
@@ -9,7 +9,7 @@ interface InflectorInterface
      *
      * @return string
      */
-    public function getType() : string;
+    public function getType();
 
     /**
      * Defines a method to be invoked on the subject object.
@@ -19,7 +19,7 @@ interface InflectorInterface
      *
      * @return self
      */
-    public function invokeMethod(string $name, array $args) : InflectorInterface;
+    public function invokeMethod($name, array $args) : InflectorInterface;
 
     /**
      * Defines multiple methods to be invoked on the subject object.
@@ -38,7 +38,7 @@ interface InflectorInterface
      *
      * @return self
      */
-    public function setProperty(string $property, $value) : InflectorInterface;
+    public function setProperty($property, $value) : InflectorInterface;
 
     /**
      * Defines multiple properties to be set on the subject object.

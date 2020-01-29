@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Inflector;
 
@@ -15,7 +15,7 @@ interface InflectorAggregateInterface extends ContainerAwareInterface, IteratorA
      *
      * @return Inflector
      */
-    public function add(string $type, callable $callback = null) : Inflector;
+    public function add($type, callable $callback = null) : Inflector;
 
     /**
      * Applies all inflectors to an object.

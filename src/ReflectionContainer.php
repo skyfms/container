@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container;
 
@@ -62,7 +62,7 @@ class ReflectionContainer implements ArgumentResolverInterface, ContainerInterfa
     /**
      * {@inheritdoc}
      */
-    public function has($id) : bool
+    public function has($id)
     {
         return class_exists($id);
     }
@@ -116,7 +116,7 @@ class ReflectionContainer implements ArgumentResolverInterface, ContainerInterfa
      *
      * @return self
      */
-    public function cacheResolutions(bool $option = true) : ContainerInterface
+    public function cacheResolutions($option = true) : ContainerInterface
     {
         $this->cacheResolutions = $option;
 

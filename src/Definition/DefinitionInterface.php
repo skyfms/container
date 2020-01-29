@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Definition;
 
@@ -13,7 +13,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addTag(string $tag) : DefinitionInterface;
+    public function addTag($tag) : DefinitionInterface;
 
     /**
      * Does the definition have a tag?
@@ -22,7 +22,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return boolean
      */
-    public function hasTag(string $tag) : bool;
+    public function hasTag($tag) : bool;
 
     /**
      * Set the alias of the definition.
@@ -31,14 +31,14 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return DefinitionInterface
      */
-    public function setAlias(string $id) : DefinitionInterface;
+    public function setAlias($id) : DefinitionInterface;
 
     /**
      * Get the alias of the definition.
      *
      * @return string
      */
-    public function getAlias() : string;
+    public function getAlias();
 
     /**
      * Set whether this is a shared definition.
@@ -47,14 +47,14 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function setShared(bool $shared) : DefinitionInterface;
+    public function setShared($shared) : DefinitionInterface;
 
     /**
      * Is this a shared definition?
      *
      * @return boolean
      */
-    public function isShared() : bool;
+    public function isShared();
 
     /**
      * Get the concrete of the definition.
@@ -98,7 +98,7 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return self
      */
-    public function addMethodCall(string $method, array $args = []) : DefinitionInterface;
+    public function addMethodCall($method, array $args = []) : DefinitionInterface;
 
     /**
      * Add multiple methods to be invoked
@@ -116,5 +116,5 @@ interface DefinitionInterface extends ContainerAwareInterface
      *
      * @return mixed
      */
-    public function resolve(bool $new = false);
+    public function resolve($new = false);
 }

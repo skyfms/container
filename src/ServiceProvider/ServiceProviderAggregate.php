@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\ServiceProvider;
 
@@ -58,7 +58,7 @@ class ServiceProviderAggregate implements ServiceProviderAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function provides(string $service) : bool
+    public function provides($service)
     {
         foreach ($this->getIterator() as $provider) {
             if ($provider->provides($service)) {
@@ -84,7 +84,7 @@ class ServiceProviderAggregate implements ServiceProviderAggregateInterface
     /**
      * {@inheritdoc}
      */
-    public function register(string $service)
+    public function register($service)
     {
         if (false === $this->provides($service)) {
             throw new ContainerException(

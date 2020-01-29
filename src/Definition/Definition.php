@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace League\Container\Definition;
 
@@ -55,7 +55,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
      * @param string $id
      * @param mixed  $concrete
      */
-    public function __construct(string $id, $concrete = null)
+    public function __construct($id, $concrete = null)
     {
         $concrete = $concrete ?? $id;
 
@@ -66,7 +66,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addTag(string $tag) : DefinitionInterface
+    public function addTag($tag) : DefinitionInterface
     {
         $this->tags[] = $tag;
 
@@ -76,7 +76,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function hasTag(string $tag) : bool
+    public function hasTag($tag)
     {
         return in_array($tag, $this->tags, true);
     }
@@ -84,7 +84,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function setAlias(string $id) : DefinitionInterface
+    public function setAlias($id) : DefinitionInterface
     {
         $this->alias = $id;
 
@@ -94,7 +94,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function getAlias() : string
+    public function getAlias()
     {
         return $this->alias;
     }
@@ -102,7 +102,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function setShared(bool $shared = true) : DefinitionInterface
+    public function setShared($shared = true) : DefinitionInterface
     {
         $this->shared = $shared;
 
@@ -112,7 +112,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function isShared() : bool
+    public function isShared()
     {
         return $this->shared;
     }
@@ -161,7 +161,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function addMethodCall(string $method, array $args = []) : DefinitionInterface
+    public function addMethodCall($method, array $args = []) : DefinitionInterface
     {
         $this->methods[] = [
             'method'    => $method,
@@ -186,7 +186,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
     /**
      * {@inheritdoc}
      */
-    public function resolve(bool $new = false)
+    public function resolve($new = false)
     {
         $concrete = $this->concrete;
 
@@ -244,7 +244,7 @@ class Definition implements ArgumentResolverInterface, DefinitionInterface
      *
      * @throws ReflectionException
      */
-    protected function resolveClass(string $concrete)
+    protected function resolveClass($concrete)
     {
         $resolved   = $this->resolveArguments($this->arguments);
         $reflection = new ReflectionClass($concrete);
